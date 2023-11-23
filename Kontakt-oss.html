@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontakt oss</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="kontakt-oss.css">
+    <link rel="stylesheet" href="header.css">
+</head>
+
+<header>
+    <nav class="navbar">
+        
+        <img class="nav-branding" src="bilder/logo/2.png" alt="">
+        
+
+        <ul class="nav-menu">
+            <li class="nav-item">
+                <a href="index.html" class="nav-link">Hjem</a>
+            </li>
+            <li class="nav-item">
+                <a href="Tjenester.html" class="nav-link">Tjenester</a>
+            </li>
+          
+            <li class="nav-item">
+                <a href="Kontakt-oss.html" class="nav-link">Ta kontakt</a>
+            </li>
+        </ul>
+        <div class="hamburger">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+
+        </div>
+    </nav>
+</header>
+  
+    
+<main>
+<div class="box2">
+
+    <div class="form1">
+<form action=""> 
+   <h2>Ta kontakt</h2>
+    <input type="text" id="navn" placeholder="Navn" required>
+    <input type="email" id="email" placeholder="Email" required>
+    <input type="tel" id="telefon" placeholder="Telefon" required>
+    <input type="city" id="by" placeholder="By" required>
+    <Textarea id="melding" rows="4" placeholder="Hvordan kan vi hjelpe deg?"></Textarea>
+    <input type="button" value="send" onclick="Send()">
+</div>
+
+
+<script src="https://smtpjs.com/v3/smtp.js"></script>
+
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+
+<script>
+function Send(){
+    console.log("function call")
+
+    Email.send({
+    Host : "smtp.elasticemail.com",
+    Username : "Nyttoppdrag@gmail.com",
+    Password : "B04E528D2164BFF5C3493BFF50AD7908976F",
+    To : 'stvgtakfasade@gmail.com',
+    From : 'Nyttoppdrag@gmail.com',
+    Subject : "NY KUNDE",
+    Body : "Navn:" + document.getElementById('navn').value
+    +  "<br/> Email: " +  document.getElementById('email').value
+    + "<br/> Telefon: " +  document.getElementById('telefon').value
+    + "<br/> By: " +  document.getElementById('by').value
+    + "<br/> Melding: " +  document.getElementById('melding').value
+    
+}).then(
+  message =>{
+    if(message=='OK'){
+
+            swal("Tusen takk!", "Vi vil kontakte deg så snart så mulig!", "success");
+        }
+        else{
+
+            swal("Noe gikk galt!", "Husk og fylle ut alle boksene!", "error");
+        }
+      }
+   );
+}
+
+
+</script>
+<script src="script.js"></script>
+</div>
+</div>
+</main>
+
+<footer>
+
+    <div class="media">
+    
+        <div class="mail">
+         <a href="mailto:stvgtakfasade@gmail.com"><img src="bilder.3/icons8-mail-50.png" alt=""></a>
+        </div>
+        <div class="fbook">
+            <a href="https://www.facebook.com/profile.php?id=61550836180647"><img src="bilder.3/icons8-facebook-50 (1).png" alt=""></a>
+        </div>
+        <div class="tlf">
+        <a href="tel:+47 41275255"><img src="bilder.3/icons8-phone-50 (1).png" alt=""></a>
+        </div>
+    </div>
+    <div class="nav">
+        <div class="Hjem">
+    <ul><a href="index.html"><p>Hjem</p></a></ul>
+        </div>
+        <div class="tjenester">
+            <ul><a href="Tjenester.html"><p>Tjenester</p></a></ul>
+        </div>
+        <div class="Ta kontakt">
+            <ul><a href="Kontakt-oss.html"><p>Ta kontakt</p></a></ul>
+        </div>
+    </div>
+    
+    
+    </footer>
+
+
+</body>
+</html>
